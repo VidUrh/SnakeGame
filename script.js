@@ -1,4 +1,4 @@
-
+asdf=new Map();
 velikost = 30;
 igraVteku = false;
 mis = [getRandomInt(velikost),getRandomInt(velikost)]
@@ -122,6 +122,14 @@ function move(){
       }
       else{localStorage.setItem(ime,dolzina+1);}
     }
+    if(ime && ime.length){
+      if(asdf[ime]){
+      asdf[ime]=Math.max(dolzina+1,asdf[ime]);
+      }
+      else{
+        asdf[ime]=dolzina+1
+      }
+  }
     Score();
     igraVteku=false;
     clearInterval(misa);
@@ -152,20 +160,20 @@ function Start(){
 }
 
 function Score(){
-  k = Object.keys(localStorage);
-  v = Object.values(localStorage);
-  k.sort((a,b)=>localStorage.getItem(b)-localStorage.getItem(a))
+
+  k = Object.keys(asdf);
+  v = Object.values(asdf);
+  k.sort((a,b)=>asdf[b]-asdf[a]);
   tabela = document.getElementById('Score')
-  console.log(k)
+
   for(i=1;i<k.length+1;i++){
     if(i>=tabela.rows.length){
-      if(!isNaN(+localStorage.getItem(k[i]))){
       i--;
       vrstica = document.createElement("tr");
       celicaIme =document.createElement("td");
       celicaIme.innerHTML = k[i]
       celica = document.createElement("td");
-      celica.innerHTML = localStorage.getItem(k[i])
+      celica.innerHTML = asdf[k[i]]
       celica.className="Score";
       celicaIme.className="Score";
       vrstica.appendChild(celicaIme)
@@ -173,15 +181,10 @@ function Score(){
       tabela.appendChild(vrstica)
       i++;
     }
-    else{
-      console.log(k)
-      continue
-      }
-    }
 
     else{
       tabela.rows[i].cells[0].innerHTML=k[i-1]
-      tabela.rows[i].cells[1].innerHTML=localStorage.getItem(k[i-1])
+      tabela.rows[i].cells[1].innerHTML=asdf[k[i-1]]
     }
   }
 

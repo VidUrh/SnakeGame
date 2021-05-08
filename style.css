@@ -1,12 +1,16 @@
 body {
-  background-color: #08468c;
-
+  background-color: green;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
+
+
 .content{
   display: flex;
   flex-direction: row;
   justify-content: space-around;
-  align-items: flex-start;
+
 }
 h1{
   margin: 0 0 0 0;
