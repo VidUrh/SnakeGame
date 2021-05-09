@@ -16,7 +16,7 @@ function NajdiCelico(x,y){
 
 function Inicializiraj(){
 
-  ime = prompt('Vaše ime:')
+  ime = prompt('Your name:')
 
   trenutnaSmer=[0,0];
   mis = [getRandomInt(velikost),getRandomInt(velikost)]
@@ -134,7 +134,7 @@ function move(){
     igraVteku=false;
     clearInterval(misa);
     clearInterval(premik);
-    alert("Zgubili ste");
+    alert("Game over");
     Inicializiraj();
   }
 }
