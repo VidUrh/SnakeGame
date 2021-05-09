@@ -3,7 +3,7 @@ velikost = 30;
 igraVteku = false;
 mis = [getRandomInt(velikost),getRandomInt(velikost)]
 dolzina = 1;
-document.getElementById("length").innerHTML = "Dolžina kače: "+(dolzina+1)
+document.getElementById("length").innerHTML = "Snake length: "+(dolzina+1)
 
 function getRandomInt(max) {
   return Math.floor(Math.random() * max);
@@ -21,7 +21,7 @@ function Inicializiraj(){
   trenutnaSmer=[0,0];
   mis = [getRandomInt(velikost),getRandomInt(velikost)]
   dolzina = 1;
-  document.getElementById("length").innerHTML = "Dolžina kače: "+(dolzina+1)
+  document.getElementById("length").innerHTML = "Snake length: "+(dolzina+1)
   kaca = []
   document.getElementById('Arena').innerHTML='';
   for(x=0;x<velikost;x++){
@@ -94,7 +94,7 @@ function move(){
     }
     else if(NajdiCelico(kaca[0][0]+zelenasmer[0],kaca[0][1]+zelenasmer[1]).className=="mis"){
 
-      document.getElementById("length").innerHTML = "Dolžina kače: "+(dolzina+2)
+      document.getElementById("length").innerHTML = "Snake length: "+(dolzina+2)
       kaca.unshift([kaca[0][0]+zelenasmer[0],kaca[0][1]+zelenasmer[1]]);
       if(zelenasmer[0]==0){
         if(zelenasmer[1]>0){NajdiCelico(kaca[0][0],kaca[0][1]).className="glavaDesno";}
